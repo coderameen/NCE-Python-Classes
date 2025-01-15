@@ -495,7 +495,7 @@ obj.myfunc()#1000
 
 
 #global variable
-n = 100000
+n1 = 100000
 class DemoClass:
     #instance variable
     n = 100
@@ -504,5 +504,174 @@ class DemoClass:
         n = 1000
         print(n)
         print(f"instance variable: {self.n}")
+        print(f"global variable: {n1}")
 obj = DemoClass()
 obj.myfunc()
+
+#Encapsulation: "wrapping or binding of data in the single intity or class"
+#To access encapsulation, we use access specifiers: public, private, protected
+#useage: banking sector, finance sectors, Cryptography, Bitcoin, Cyber Security etc:
+# n = 100#public
+# _n = 100#protected
+# __n = 100 #private
+
+
+class Encap:
+    n = 100#public
+    _n = 1000#protected
+    __n = 100000#private
+    def myfunc(self):
+        print(self.__n)
+   
+obj = Encap() 
+print(obj.n)#100
+print(obj._n)#1000
+# print(obj.__n)#Error
+obj.myfunc()#100000
+
+class Bank:
+    def __init__(self,amount):
+        self.__balance = amount
+    
+    def check_bankbalance(self,pin):
+        if pin==123:
+            print("Your bank balance is: ",self.__balance)
+        else:
+            print("invalid pin!!")
+c1 = Bank(1000)
+c1.check_bankbalance(123)#Your bank balance is:  1000
+
+
+#4.inheritence: derived class inherit property of base class
+'''
+1. Single level inheritence
+2. Multi level in
+3. Multiple inher
+4. Hirarchical inherithan
+'''
+#single level inheritence
+class Parent:
+    def pdisplay(self):
+        print("Parent property")
+        
+class Child(Parent):
+    def cdisplay(self):
+        print("Child property")
+        
+c = Child()
+c.cdisplay()#Child property
+c.pdisplay()#Parent property
+
+#Multi level I
+class GrandParent:
+    def gpdisplay(self):
+        print("Grand Parent Property")
+class Parent(GrandParent):
+    def pdisplay(self):
+        print("Parent Property")
+class Child(Parent):
+    def cdisplay(self):
+        print("Child Property")
+
+obj = Child()
+obj.cdisplay()
+obj.pdisplay()
+obj.gpdisplay()
+
+#Multiple inheritence
+class Father:
+    def fdisplay(self):
+        print("Father Property")
+class Mother:
+    def mdisplay(self):
+        print("Mother Property")
+class Child(Father,Mother):
+    def cdisplay(self):
+        print("Child Property")
+c = Child()
+c.cdisplay()
+c.fdisplay()
+c.mdisplay()
+#NOTE: Multiple inheritence not supported in JAVA.
+
+
+#H I
+class Parent:
+    def pdisplay(self):
+        print("Parent Property")
+class Child1(Parent):
+    def c1display(self):
+        print("Child1 Property")
+class Child2(Parent):
+    def c2display(self):
+        print("Child2 property")
+        
+c1 = Child1()
+c1.pdisplay()
+c2 = Child2()
+c2.pdisplay()
+
+
+#Abstraction: "Hiding implementation details by showing essential details"
+#example: installing any setup software
+
+'''
+* abstract class: A class which is inherited from ABC(ABSTRACT CLASS) and has abstract method in it.
+
+* abstract method: A method which is only declared but not defined.
+
+*We can't create object for Abstract Class.
+* To define the abstrace method, I can define inside the concrete class
+*I can create object of concrete class.
+'''
+#@ => decorator in python
+from abc import ABC, abstractmethod
+class AbsClass(ABC):
+    @abstractmethod
+    def absfunc(self):
+        pass
+class ConcreteClass(AbsClass):
+    def absfunc(self):
+        print("I have defined the abstract method")
+
+obj = ConcreteClass()
+obj.absfunc()#I have defined the abstract method
+
+#Polymorphism: "Implementing same thing in a different way"
+#To achieve polymorphism we use overloading and overrinding.
+#Overloading: 1. Operator overloading 2.Method Overloading
+#1.Operator overloading
+#'+'
+print(10+90)#'+' symbol act as addition wrt integer
+print("Hi"+"Alen")# '+' symbol act as concatination wrt strings
+
+#'*'
+print(10*2)#'*' acts as multiplication wrt integers
+print([1,2,3]*2)#'*' acts as replication wrt list/tuple
+
+#2.Method Overloading
+def add():
+    print(10+20+30)
+add()
+
+def add(a,b):
+    print(a+b)
+add(10,30)
+
+def add(a,b,z=100):
+    print(a+b+z)
+    
+add(10,20,200)
+
+#Overriding:(Interview**)
+class Parent:
+    def display(self):
+        print("Parent Display!!")
+        
+class Child(Parent):
+    def display(self):
+        super().display()
+        print("Child Display!!")
+
+c = Child()
+c.display()
