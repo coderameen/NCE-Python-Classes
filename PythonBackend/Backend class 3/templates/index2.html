@@ -3,10 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MYSITE</title>
+    <title>mypage2</title>
 </head>
 <body>
-    <h1>Hello saniya and gulfam!!!</h1>
-    <img src="{{ url_for('static',filename='images/laptop.jpg')}}" alt="" width="100%" height="auto">
+    {{studentdetail}}
+
+    {% for i in studentdetail %}
+        <p>{{studentdetail[i]}}</p>
+    {% endfor %}
 </body>
 </html>
