@@ -17,8 +17,6 @@ def predictapi():
         print(pred)
         # return f"The Predicted cgpa of student is: {pred}"
         return render_template("index.html", content = pred[0])
-        
-
 
 if __name__=='__main__':
     app.run(debug=True)
