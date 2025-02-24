@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>HDP Website</title>
+  </head>
+  <body>
+    <div class="row">
+        <div class="col-3">
+
+        </div>
+        <div class="col-6">
+            <h1 style="text-align: center;">Heart Disease Prediction</h1>
+                {% if msg %}
+                <h3 style="background-color: cornflowerblue;color: darkorange;">{{ msg }}</h3> 
+                {% endif %}
+            <form action="{{ url_for('predict')}}" method="post">
+                <label for="">Age</label><input type="text" placeholder="Enter Age value" name="inp1box" class="form-control">
+                <label for="">sex</label><input type="text" placeholder="Enter sex value" name="inp2box" class="form-control">
+                <label for="">cp</label><input type="text" placeholder="Enter cp value" name="inp3box" class="form-control">
+                <label for="">trestbps</label><input type="text" placeholder="Enter trestbps" name="inp4box" class="form-control">
+                <label for="">chol</label><input type="text" placeholder="Enter chol value" name="inp5box" class="form-control">
+                <label for="">fbs</label><input type="text" placeholder="Enter fbs value" name="inp6box" class="form-control">
+                <label for="">restecg</label><input type="text" placeholder="Enter restecg" name="inp7box" class="form-control">
+                <label for="">thalach</label><input type="text" placeholder="Enter thalach value" name="inp8box" class="form-control">
+                <label for="">exang</label><input type="text" placeholder="Enter exang value" name="inp9box" class="form-control">
+                <label for="">oldpeak</label><input type="text" placeholder="Enter oldpeak value" name="inp10box" class="form-control">
+                <label for="">slope</label><input type="text" placeholder="Enter slope value" name="inp11box" class="form-control">
+                <label for="">ca</label><input type="text" placeholder="Enter ca value" name="inp12box" class="form-control">
+                <label for="">thal</label><input type="text" placeholder="Enter thal value" name="inp13box" class="form-control">
+                
+                <input type="submit" value="Predict" class="btn btn-success">
+
+            </form>
+        </div>
+        <div class="col-3">
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>
