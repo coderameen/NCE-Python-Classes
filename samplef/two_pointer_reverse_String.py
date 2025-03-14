@@ -10,4 +10,5 @@ while st <= end:
 
 print(s)
 res = ''.join(s)  
-print(res)
+print(res)#
+#EOP
